@@ -54,7 +54,7 @@ function normalizeText(value = '') {
 }
 
 function updateResultsCounter(count) {
-  resultsCounter.textContent = `${count} Pokémon trouvés en utilisant les filtres de recherche`;
+  resultsCounter.textContent = `${count} Pokémon found using the search filter`;
 }
 
 function createCardElement(card) {
@@ -62,7 +62,7 @@ function createCardElement(card) {
   article.type = 'button';
   article.className = 'catalog-card';
   article.dataset.name = card.name.toLowerCase();
-  article.setAttribute('aria-label', `Afficher ${card.name}`);
+  article.setAttribute('aria-label', `Show ${card.name}`);
   article.innerHTML = `
     <img src="${card.image}" alt="${card.name}" loading="lazy">
     <span>${card.name}</span>
