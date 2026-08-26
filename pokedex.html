@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curse</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/index.css">
+    <link rel="icon" href="./Images/Icone.png">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="https://palkiabraz.github.io/Malediction/" target="_blank" rel="noopener noreferrer" title="Passer en français">
+                <div class="logo-container">
+                    <img src="./Images/Logo.PNG" alt="Logo of Curse">
+                    <p class="logo-credit">Logo done by <a href="https://www.instagram.com/emeebsx" target="_blank">@emeebsx</a></p>
+                </div>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pokedex.html">Pokédex</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="pokedex-page">
+        <section class="catalogue-header">
+            <label class="search-bar" for="card-search">
+                <input id="card-search" type="search" placeholder="Rechercher un Pokémon" aria-label="Rechercher un Pokémon">
+            </label>
+            <div class="search-results-line">
+                <span id="search-results" aria-live="polite">0 Pokémon found using the search filter</span>
+            </div>
+        </section>
+
+        <section id="card-catalog" class="card-catalog" aria-live="polite"></section>
+    </main>
+
+    <div id="card-modal" class="card-modal" aria-hidden="true">
+        <div class="card-modal-content" role="dialog" aria-modal="true">
+            <button id="modal-close" class="modal-close" type="button" aria-label="Close the card"></button>
+            <img id="modal-image" src="" alt="Card in large format">
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p><i><u>Curse</u> is compliant with the general terms of use requested by The Pokémon Company while respecting the intellectual property rights related to Pokémon</i></p>
+            <p><i><u>Curse</u> is registered in the <u><a href="https://atelier197.carrd.co/" target="_blank" rel="noopener noreferrer">Atelier 197</a></i></u> initiative</p>
+        </div>
+    </footer>
+
+    <script src="./JS/pokedex.js"></script>
+</body>
+</html>
