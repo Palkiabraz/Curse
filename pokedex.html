@@ -11,18 +11,21 @@
 
 <body>
     <header>
-        <div class="logo">
-            <a href="https://palkiabraz.github.io/Malediction/" target="_blank" rel="noopener noreferrer" title="Passer en français">
+        <div class="header-top">
+            <div class="logo">
                 <div class="logo-container">
                     <img src="./Images/Logo.PNG" alt="Logo of Curse">
-                    <p class="logo-credit">Logo done by <a href="https://www.instagram.com/emeebsx" target="_blank">@emeebsx</a></p>
+                    <p class="logo-credit">Logo done by <a href="https://www.instagram.com/emeebsx" target="_blank" rel="noopener noreferrer">@emeebsx</a></p>
                 </div>
+            </div>
+            <a class="curse-link" href="https://palkiabraz.github.io/Malediction/pokedex.html" target="_blank" rel="noopener noreferrer" title="Passer en français">
+                    <img class="curse-placeholder" src="./Images/Langage.png" alt="Passer en français">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="pokedex.html">Pokédex</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="pokedex.html">Pokedex</a></li>
             </ul>
         </nav>
     </header>
@@ -30,14 +33,66 @@
     <main class="pokedex-page">
         <section class="catalogue-header">
             <label class="search-bar" for="card-search">
-                <input id="card-search" type="search" placeholder="Search a Pokémon" aria-label="Search a Pokémon">
+                <input id="card-search" type="search" placeholder="Search for a Pokémon" aria-label="Search for a Pokémon">
             </label>
+            <details class="generation-filter">
+                <summary>Filter by Generation</summary>
+                <div class="generation-options">
+                    <label><input id="generation-all" type="checkbox" checked> All</label>
+                    <label><input type="checkbox" value="1"> Generation I</label>
+                    <label><input type="checkbox" value="2"> Generation II</label>
+                    <label><input type="checkbox" value="3"> Generation III</label>
+                    <label><input type="checkbox" value="4"> Generation IV</label>
+                    <label><input type="checkbox" value="5"> Generation V</label>
+                    <label><input type="checkbox" value="6"> Generation VI</label>
+                    <label><input type="checkbox" value="7"> Generation VII</label>
+                    <label><input type="checkbox" value="8"> Generation VIII</label>
+                    <label><input type="checkbox" value="9"> Generation IX</label>
+                </div>
+            </details>
             <div class="search-results-line">
-                <span id="search-results" aria-live="polite">0 Pokémon found using the search filter</span>
+                <span id="search-results" aria-live="polite">0 Pokémon found using search filter</span>
             </div>
         </section>
 
-        <section id="card-catalog" class="card-catalog" aria-live="polite"></section>
+        <section id="card-catalog" class="card-catalog" aria-live="polite">
+            <button class="catalog-card" type="button" data-name="aegislash" data-generation="6" data-sound="./Sons/Pokémon/Aegislash.ogg" aria-label="Display Aegislash"><img src="./Images/Cartes/Aegislash.png" alt="Aegislash" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="annihilape" data-generation="9" data-sound="./Sons/Pokémon/Annihilape.ogg" aria-label="Display Annihilape"><img src="./Images/Cartes/Annihilape.png" alt="Annihilape" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="basculegion" data-generation="8" data-sound="./Sons/Pokémon/Basculegion.ogg" aria-label="Display Basculegion"><img src="./Images/Cartes/Basculegion.png" alt="Basculegion" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="banette" data-generation="3" data-sound="./Sons/Pokémon/Banette.ogg" aria-label="Display Banette"><img src="./Images/Cartes/Banette.png" alt="Banette" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="brambleghast" data-generation="9" data-sound="./Sons/Pokémon/Brambleghast.ogg" aria-label="Display Brambleghast"><img src="./Images/Cartes/Brambleghast.png" alt="Brambleghast" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="ceruledge" data-generation="9" data-sound="./Sons/Pokémon/Ceruledge.ogg" aria-label="Display Ceruledge"><img src="./Images/Cartes/Ceruledge.png" alt="Ceruledge" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="chandelure" data-generation="5" data-sound="./Sons/Pokémon/Chandelure.ogg" aria-label="Display Chandelure"><img src="./Images/Cartes/Chandelure.png" alt="Chandelure" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="cofagrigus" data-generation="5" data-sound="./Sons/Pokémon/Cofagrigus.ogg" aria-label="Display Cofagrigus"><img src="./Images/Cartes/Cofagrigus.png" alt="Cofagrigus" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="cursola" data-generation="8" data-sound="./Sons/Pokémon/Cursola.ogg" aria-label="Display Cursola"><img src="./Images/Cartes/Cursola.png" alt="Cursola" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="decidueye" data-generation="7" data-sound="./Sons/Pokémon/Decidueye.ogg" aria-label="Display Decidueye"><img src="./Images/Cartes/Decidueye.png" alt="Decidueye" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="dhelmise" data-generation="7" data-sound="./Sons/Pokémon/Dhelmise.ogg" aria-label="Display Dhelmise"><img src="./Images/Cartes/Dhelmise.png" alt="Dhelmise" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="dragapult" data-generation="8" data-sound="./Sons/Pokémon/Dragapult.ogg" aria-label="Display Dragapult"><img src="./Images/Cartes/Dragapult.png" alt="Dragapult" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="drifblim" data-generation="4" data-sound="./Sons/Pokémon/Drifblim.ogg" aria-label="Display Drifblim"><img src="./Images/Cartes/Drifblim.png" alt="Drifblim" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="dusknoir" data-generation="4" data-sound="./Sons/Pokémon/Dusknoir.ogg" aria-label="Display Dusknoir"><img src="./Images/Cartes/Dusknoir.png" alt="Dusknoir" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="froslass" data-generation="4" data-sound="./Sons/Pokémon/Froslass.ogg" aria-label="Display Froslass"><img src="./Images/Cartes/Froslass.png" alt="Froslass" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="gholdengo" data-generation="9" data-sound="./Sons/Pokémon/Gholdengo.ogg" aria-label="Display Gholdengo"><img src="./Images/Cartes/Gholdengo.png" alt="Gholdengo" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="gengar" data-generation="1" data-sound="./Sons/Pokémon/Gengar.ogg" aria-label="Display Gengar"><img src="./Images/Cartes/Gengar.png" alt="Gengar" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="golurk" data-generation="5" data-sound="./Sons/Pokémon/Golurk.ogg" aria-label="Display Golurk"><img src="./Images/Cartes/Golurk.png" alt="Golurk" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="gourgeist" data-generation="6" data-sound="./Sons/Pokémon/Gourgeist.ogg" aria-label="Display Gourgeist"><img src="./Images/Cartes/Gourgeist.png" alt="Gourgeist" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="houndstone" data-generation="9" data-sound="./Sons/Pokémon/Houndstone.ogg" aria-label="Display Houndstone"><img src="./Images/Cartes/Houndstone.png" alt="Houndstone" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="jellicent" data-generation="5" data-sound="./Sons/Pokémon/Jellicent.ogg" aria-label="Display Jellicent"><img src="./Images/Cartes/Jellicent.png" alt="Jellicent" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="marowak" data-generation="1" data-sound="./Sons/Pokémon/Marowak.ogg" aria-label="Display Marowak"><img src="./Images/Cartes/Marowak.png" alt="Marowak" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="mimikyu" data-generation="7" data-sound="./Sons/Pokémon/Mimikyu.ogg" aria-label="Display Mimikyu"><img src="./Images/Cartes/Mimikyu.png" alt="Mimikyu" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="mismagius" data-generation="4" data-sound="./Sons/Pokémon/Mismagius.ogg" aria-label="Display Mismagius"><img src="./Images/Cartes/Mismagius.png" alt="Mismagius" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="palossand" data-generation="7" data-sound="./Sons/Pokémon/Palossand.ogg" aria-label="Display Palossand"><img src="./Images/Cartes/Palossand.png" alt="Palossand" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="polteageist" data-generation="8" data-sound="./Sons/Pokémon/Polteageist.ogg" aria-label="Display Polteageist"><img src="./Images/Cartes/Polteageist.png" alt="Polteageist" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="rotom" data-generation="4" data-sound="./Sons/Pokémon/Rotom.ogg" aria-label="Display Rotom"><img src="./Images/Cartes/Rotom.png" alt="Rotom" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="runerigus" data-generation="8" data-sound="./Sons/Pokémon/Runerigus.ogg" aria-label="Display Runerigus"><img src="./Images/Cartes/Runerigus.png" alt="Runerigus" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="sableye" data-generation="3" data-sound="./Sons/Pokémon/Sableye.ogg" aria-label="Display Sableye"><img src="./Images/Cartes/Sableye.png" alt="Sableye" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="shedinja" data-generation="3" data-sound="./Sons/Pokémon/Shedinja.ogg" aria-label="Display Shedinja"><img src="./Images/Cartes/Shedinja.png" alt="Shedinja" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="sinistcha" data-generation="9" data-sound="./Sons/Pokémon/Sinistcha.ogg" aria-label="Display Sinistcha"><img src="./Images/Cartes/Sinistcha.png" alt="Sinistcha" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="skeledirge" data-generation="9" data-sound="./Sons/Pokémon/Skeledirge.ogg" aria-label="Display Skeledirge"><img src="./Images/Cartes/Skeledirge.png" alt="Skeledirge" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="spiritomb" data-generation="4" data-sound="./Sons/Pokémon/Spiritomb.ogg" aria-label="Display Spiritomb"><img src="./Images/Cartes/Spiritomb.png" alt="Spiritomb" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="trevenant" data-generation="6" data-sound="./Sons/Pokémon/Trevenant.ogg" aria-label="Display Trevenant"><img src="./Images/Cartes/Trevenant.png" alt="Trevenant" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="typhlosion" data-generation="2" data-sound="./Sons/Pokémon/Typhlosion.ogg" aria-label="Display Typhlosion"><img src="./Images/Cartes/Typhlosion.png" alt="Typhlosion" loading="lazy"></button>
+            <button class="catalog-card" type="button" data-name="zoroark" data-generation="5" data-sound="./Sons/Pokémon/Zoroark.ogg" aria-label="Display Zoroark"><img src="./Images/Cartes/Zoroark.png" alt="Zoroark" loading="lazy"></button>
+        </section>
     </main>
 
     <div id="card-modal" class="card-modal" aria-hidden="true">
@@ -50,7 +105,7 @@
     <footer>
         <div class="footer">
             <p><i><u>Curse</u> is compliant with the general terms of use requested by The Pokémon Company while respecting the intellectual property rights related to Pokémon</i></p>
-            <p><i><u>Curse</u> is registered in the <u><a href="https://atelier197.carrd.co/" target="_blank" rel="noopener noreferrer">Atelier 197</a></i></u> initiative</p>
+            <p><i><u>Curse</u> is registered in the <u><a href="https://atelier197.carrd.co/" target="_blank" rel="noopener noreferrer">Atelier 197</a></i></u> french initiative</p>
         </div>
     </footer>
 

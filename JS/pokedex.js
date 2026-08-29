@@ -1,49 +1,12 @@
-const cards = [
-  { name: 'Aegislash', image: './Images/Cartes/Aegislash.png', sound: './Sons/Aegislash.ogg' },
-  { name: 'Annihilape', image: './Images/Cartes/Annihilape.png', sound: './Sons/Annihilape.ogg' },
-  { name: 'Banette', image: './Images/Cartes/Banette.png', sound: './Sons/Banette.ogg' },
-  { name: 'Basculegion', image: './Images/Cartes/Basculegion.png', sound: './Sons/Basculegion.ogg' },
-  { name: 'Brambleghast', image: './Images/Cartes/Brambleghast.png', sound: './Sons/Brambleghast.ogg' },
-  { name: 'Ceruledge', image: './Images/Cartes/Ceruledge.png', sound: './Sons/Ceruledge.ogg' },
-  { name: 'Chandelure', image: './Images/Cartes/Chandelure.png', sound: './Sons/Chandelure.ogg' },
-  { name: 'Cofagrigus', image: './Images/Cartes/Cofagrigus.png', sound: './Sons/Cofagrigus.ogg' },
-  { name: 'Cursola', image: './Images/Cartes/Cursola.png', sound: './Sons/Cursola.ogg' },
-  { name: 'Decidueye', image: './Images/Cartes/Decidueye.png', sound: './Sons/Decidueye.ogg' },
-  { name: 'Dhelmise', image: './Images/Cartes/Dhelmise.png', sound: './Sons/Dhelmise.ogg' },
-  { name: 'Dragapult', image: './Images/Cartes/Dragapult.png', sound: './Sons/Dragapult.ogg' },
-  { name: 'Drifblim', image: './Images/Cartes/Drifblim.png', sound: './Sons/Drifblim.ogg' },
-  { name: 'Dusknoir', image: './Images/Cartes/Dusknoir.png', sound: './Sons/Dusknoir.ogg' },
-  { name: 'Froslass', image: './Images/Cartes/Froslass.png', sound: './Sons/Froslass.ogg' },
-  { name: 'Gengar', image: './Images/Cartes/Gengar.png', sound: './Sons/Gengar.ogg' },
-  { name: 'Gholdengo', image: './Images/Cartes/Gholdengo.png', sound: './Sons/Gholdengo.ogg' },
-  { name: 'Golurk', image: './Images/Cartes/Golurk.png', sound: './Sons/Golurk.ogg' },
-  { name: 'Gourgeist', image: './Images/Cartes/Gourgeist.png', sound: './Sons/Gourgeist.ogg' },
-  { name: 'Houndstone', image: './Images/Cartes/Houndstone.png', sound: './Sons/Houndstone.ogg' },
-  { name: 'Jellicent', image: './Images/Cartes/Jellicent.png', sound: './Sons/Jellicent.ogg' },
-  { name: 'Marowak', image: './Images/Cartes/Marowak.png', sound: './Sons/Marowak.ogg' },
-  { name: 'Mimikyu', image: './Images/Cartes/Mimikyu.png', sound: './Sons/Mimikyu.ogg' },
-  { name: 'Mismagius', image: './Images/Cartes/Mismagius.png', sound: './Sons/Mismagius.ogg' },
-  { name: 'Palossand', image: './Images/Cartes/Palossand.png', sound: './Sons/Palossand.ogg' },
-  { name: 'Polteageist', image: './Images/Cartes/Polteageist.png', sound: './Sons/Polteageist.ogg' },
-  { name: 'Rotom', image: './Images/Cartes/Rotom.png', sound: './Sons/Rotom.ogg' },
-  { name: 'Runerigus', image: './Images/Cartes/Runerigus.png', sound: './Sons/Runerigus.ogg' },
-  { name: 'Sableye', image: './Images/Cartes/Sableye.png', sound: './Sons/Sableye.ogg' },
-  { name: 'Shedinja', image: './Images/Cartes/Shedinja.png', sound: './Sons/Shedinja.ogg' },
-  { name: 'Sinistcha', image: './Images/Cartes/Sinistcha.png', sound: './Sons/Sinistcha.ogg' },
-  { name: 'Skeledirge', image: './Images/Cartes/Skeledirge.png', sound: './Sons/Skeledirge.ogg' },
-  { name: 'Spiritomb', image: './Images/Cartes/Spiritomb.png', sound: './Sons/Spiritomb.ogg' },
-  { name: 'Trevenant', image: './Images/Cartes/Trevenant.png', sound: './Sons/Trevenant.ogg' },
-  { name: 'Typhlosion', image: './Images/Cartes/Typhlosion.png', sound: './Sons/Typhlosion.ogg' },
-  { name: 'Zoroark', image: './Images/Cartes/Zoroark.png', sound: './Sons/Zoroark.ogg' }
-];
-
 const catalog = document.getElementById('card-catalog');
 const searchInput = document.getElementById('card-search');
 const resultsCounter = document.getElementById('search-results');
+const generationAll = document.getElementById('generation-all');
+const generationInputs = [...document.querySelectorAll('.generation-options input:not(#generation-all)')];
 const modalOverlay = document.getElementById('card-modal');
 const modalImage = document.getElementById('modal-image');
 const modalClose = document.getElementById('modal-close');
-const cardMap = new Map(cards.map((card) => [card.name.toLowerCase(), card]));
+const cardMap = new Map([...catalog.querySelectorAll('.catalog-card')].map((card) => [card.dataset.name, card]));
 const audioPlayer = new Audio();
 
 function normalizeText(value = '') {
@@ -54,36 +17,29 @@ function normalizeText(value = '') {
 }
 
 function updateResultsCounter(count) {
-  resultsCounter.textContent = `${count} Pokémon found using the search filter`;
-}
-
-function createCardElement(card) {
-  const article = document.createElement('button');
-  article.type = 'button';
-  article.className = 'catalog-card';
-  article.dataset.name = card.name.toLowerCase();
-  article.setAttribute('aria-label', `Show ${card.name}`);
-  article.innerHTML = `
-    <img src="${card.image}" alt="${card.name}" loading="lazy">
-    <span>${card.name}</span>
-  `;
-
-  return article;
+  resultsCounter.textContent = `${count} Pokémon found using search filter`;
 }
 
 function renderCards(filter = '') {
   const normalizedFilter = normalizeText(filter.trim());
-  const filteredCards = cards.filter(({ name }) =>
-    normalizeText(name).includes(normalizedFilter)
-  );
+  const selectedGenerations = new Set(generationInputs.filter((input) => input.checked).map((input) => input.value));
+  let visibleCount = 0;
 
-  catalog.replaceChildren(...filteredCards.map(createCardElement));
-  updateResultsCounter(filteredCards.length);
+  cardMap.forEach((card) => {
+    const matchesSearch = normalizeText(card.dataset.name).includes(normalizedFilter);
+    const matchesGeneration = generationAll.checked || selectedGenerations.has(card.dataset.generation);
+    const isVisible = matchesSearch && matchesGeneration;
+    card.hidden = !isVisible;
+    visibleCount += isVisible ? 1 : 0;
+  });
+
+  updateResultsCounter(visibleCount);
 }
 
 function openCardModal(card) {
-  modalImage.src = card.image;
-  modalImage.alt = card.name;
+  const image = card.querySelector('img');
+  modalImage.src = image.src;
+  modalImage.alt = image.alt;
   modalOverlay.classList.add('visible');
   modalOverlay.setAttribute('aria-hidden', 'false');
 }
@@ -94,11 +50,11 @@ function closeCardModal() {
 }
 
 function playCardSound(card) {
-  if (!card.sound) {
+  if (!card.dataset.sound) {
     return;
   }
 
-  audioPlayer.src = card.sound;
+  audioPlayer.src = card.dataset.sound;
   audioPlayer.currentTime = 0;
   audioPlayer.volume = 0.25;
   audioPlayer.play().catch(() => {});
@@ -106,6 +62,25 @@ function playCardSound(card) {
 
 searchInput.addEventListener('input', (event) => {
   renderCards(event.target.value);
+});
+
+generationAll.addEventListener('change', () => {
+  if (generationAll.checked) {
+    generationInputs.forEach((input) => { input.checked = false; });
+  }
+  renderCards(searchInput.value);
+});
+
+generationInputs.forEach((input) => {
+  input.addEventListener('change', () => {
+    if (input.checked) {
+      generationAll.checked = false;
+    }
+    if (!generationInputs.some((generationInput) => generationInput.checked)) {
+      generationAll.checked = true;
+    }
+    renderCards(searchInput.value);
+  });
 });
 
 catalog.addEventListener('click', (event) => {
